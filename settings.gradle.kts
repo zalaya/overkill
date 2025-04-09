@@ -1,2 +1,1 @@
-rootProject.name = "overkill"
-
+rootProject.name = "parent"
