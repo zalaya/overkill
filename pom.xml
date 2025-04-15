@@ -31,6 +31,18 @@
                 <version>3.4.4</version>
             </dependency>
 
+            <!-- MAPSTRUCT -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>1.6.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.6.3</version>
+            </dependency>
+
             <!-- LOMBOK -->
             <dependency>
                 <groupId>org.projectlombok</groupId>

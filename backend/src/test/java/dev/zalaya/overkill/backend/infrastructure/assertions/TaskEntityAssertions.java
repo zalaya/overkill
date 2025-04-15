@@ -1,5 +1,6 @@
 package dev.zalaya.overkill.backend.infrastructure.assertions;
 
+import dev.zalaya.overkill.backend.domain.model.Task;
 import dev.zalaya.overkill.backend.infrastructure.persistence.entity.TaskEntity;
 
 import org.assertj.core.api.AbstractAssert;
@@ -30,6 +31,17 @@ public class TaskEntityAssertions extends AbstractAssert<TaskEntityAssertions, T
         Assertions.assertThat(actual.getId()).isNotNull();
         Assertions.assertThat(actual.getCreatedAt()).isNotNull();
         Assertions.assertThat(actual.getUpdatedAt()).isNotNull();
+
+        return this;
+    }
+
+    public TaskEntityAssertions hasSameFieldsAs(Task expected) {
+        isNotNull();
+
+        Assertions.assertThat(actual.getTitle()).isEqualTo(expected.getTitle());
+        Assertions.assertThat(actual.getDescription()).isEqualTo(expected.getDescription());
+        Assertions.assertThat(actual.getPriority()).isEqualTo(expected.getPriority());
+        Assertions.assertThat(actual.getExpiresAt()).isEqualTo(expected.getExpiresAt());
 
         return this;
     }

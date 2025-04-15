@@ -21,7 +21,7 @@ class TaskJpaRepositoryIntegrationTest {
     @Test
     void givenTaskEntity_whenSave_thenReturnPersistedTaskEntity() {
         // Given
-        TaskEntity taskEntity = aTaskWith("Title", Priority.MEDIUM);
+        TaskEntity taskEntity = aTaskEntityWith("Title", Priority.MEDIUM);
 
         // When
         TaskEntity persistedTaskEntity = repository.save(taskEntity);
@@ -33,8 +33,8 @@ class TaskJpaRepositoryIntegrationTest {
     @Test
     void givenTaskEntities_whenSaveAll_thenReturnPersistedTaskEntities() {
         // Given
-        TaskEntity taskEntity1 = aTaskWith("Title 1", Priority.LOW);
-        TaskEntity taskEntity2 = aTaskWith("Title 2", Priority.HIGH);
+        TaskEntity taskEntity1 = aTaskEntityWith("Title 1", Priority.LOW);
+        TaskEntity taskEntity2 = aTaskEntityWith("Title 2", Priority.HIGH);
         List<TaskEntity> taskEntities = List.of(taskEntity1, taskEntity2);
 
         // When
@@ -45,7 +45,7 @@ class TaskJpaRepositoryIntegrationTest {
         assertPersistenceOf(taskEntity2, persistedTaskEntities.get(1));
     }
 
-    private TaskEntity aTaskWith(String title, Priority priority) {
+    private TaskEntity aTaskEntityWith(String title, Priority priority) {
         return TaskEntity.builder()
             .title(title)
             .priority(priority)
