@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 
 import static dev.zalaya.overkill.backend.infrastructure.assertions.TaskEntityAssertions.assertThat;
+import static dev.zalaya.overkill.backend.infrastructure.entity.TaskEntityFixtures.aTaskEntityWith;
 
 @DataJpaTest
 class TaskJpaRepositoryIntegrationTest {
@@ -43,13 +44,6 @@ class TaskJpaRepositoryIntegrationTest {
         // Then
         assertPersistenceOf(taskEntity1, persistedTaskEntities.get(0));
         assertPersistenceOf(taskEntity2, persistedTaskEntities.get(1));
-    }
-
-    private TaskEntity aTaskEntityWith(String title, Priority priority) {
-        return TaskEntity.builder()
-            .title(title)
-            .priority(priority)
-            .build();
     }
 
     private void assertPersistenceOf(TaskEntity expected, TaskEntity actual) {
