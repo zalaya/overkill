@@ -50,13 +50,6 @@
                 <version>1.18.38</version>
             </dependency>
 
-            <!-- JUNIT -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.12.2</version>
-            </dependency>
-
             <!-- H2 -->
             <dependency>
                 <groupId>com.h2database</groupId>
