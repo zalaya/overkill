@@ -10,6 +10,8 @@ servers:
 paths:
   /tasks:
     get:
+      tags:
+        - Task
       summary: Get all tasks
       operationId: getAllTasks
       responses:
@@ -22,6 +24,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
     post:
+      tags:
+        - Task
       summary: Create a task
       operationId: createTask
       requestBody:
@@ -40,6 +44,8 @@ paths:
 
   /tasks/{id}:
     get:
+      tags:
+        - Task
       summary: Get task by ID
       operationId: getTaskById
       parameters:

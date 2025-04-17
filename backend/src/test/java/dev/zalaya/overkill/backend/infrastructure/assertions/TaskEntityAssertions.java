@@ -1,5 +1,6 @@
 package dev.zalaya.overkill.backend.infrastructure.assertions;
 
+import dev.zalaya.overkill.api.model.TaskInputDto;
 import dev.zalaya.overkill.backend.domain.model.Task;
 import dev.zalaya.overkill.backend.infrastructure.persistence.entity.TaskEntity;
 
