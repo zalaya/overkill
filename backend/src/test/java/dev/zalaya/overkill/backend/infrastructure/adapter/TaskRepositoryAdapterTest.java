@@ -7,7 +7,6 @@ import dev.zalaya.overkill.backend.infrastructure.persistence.entity.TaskEntity;
 import dev.zalaya.overkill.backend.infrastructure.persistence.mapper.TaskEntityMapper;
 import dev.zalaya.overkill.backend.infrastructure.persistence.repository.TaskJpaRepository;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static dev.zalaya.overkill.backend.domain.model.TaskFixtures.aTaskWith;
+import static dev.zalaya.overkill.backend.fixtures.TaskFixtures.aTaskWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.verify;

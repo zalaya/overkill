@@ -13,8 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TaskRepositoryAdapter implements TaskRepository {
 
-    private final TaskJpaRepository repository;
     private final TaskEntityMapper mapper;
+    private final TaskJpaRepository repository;
 
     @Override
     public Task save(Task task) {

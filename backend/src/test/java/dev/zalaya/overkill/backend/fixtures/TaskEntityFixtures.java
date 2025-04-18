@@ -1,4 +1,4 @@
-package dev.zalaya.overkill.backend.infrastructure.entity;
+package dev.zalaya.overkill.backend.fixtures;
 
 import dev.zalaya.overkill.backend.domain.model.Priority;
 import dev.zalaya.overkill.backend.infrastructure.persistence.entity.TaskEntity;

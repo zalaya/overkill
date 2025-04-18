@@ -1,4 +1,7 @@
-package dev.zalaya.overkill.backend.domain.model;
+package dev.zalaya.overkill.backend.fixtures;
+
+import dev.zalaya.overkill.backend.domain.model.Priority;
+import dev.zalaya.overkill.backend.domain.model.Task;
 
 public class TaskFixtures {
 
