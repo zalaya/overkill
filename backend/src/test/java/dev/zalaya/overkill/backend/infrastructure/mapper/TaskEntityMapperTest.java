@@ -27,11 +27,7 @@ class TaskEntityMapperTest {
         Task mappedTask = mapper.toDomain(taskEntity);
 
         // Then
-        assertThat(mappedTask).isNotNull();
-        assertThat(mappedTask.getTitle()).isEqualTo(taskEntity.getTitle());
-        assertThat(mappedTask.getDescription()).isEqualTo(taskEntity.getDescription());
-        assertThat(mappedTask.getPriority()).isEqualTo(taskEntity.getPriority());
-        assertThat(mappedTask.getExpiresAt()).isEqualTo(taskEntity.getExpiresAt());
+        assertMappingOf(taskEntity, mappedTask);
     }
 
     @Test
@@ -45,9 +41,8 @@ class TaskEntityMapperTest {
         List<Task> mappedTasks = mapper.toDomain(taskEntities);
 
         // Then
-        assertThat(mappedTasks).hasSize(2);
-        assertThat(mappedTasks.get(0).getTitle()).isEqualTo(taskEntity1.getTitle());
-        assertThat(mappedTasks.get(1).getTitle()).isEqualTo(taskEntity2.getTitle());
+        assertMappingOf(taskEntity1, mappedTasks.get(0));
+        assertMappingOf(taskEntity2, mappedTasks.get(1));
     }
 
     @Test
@@ -59,13 +54,7 @@ class TaskEntityMapperTest {
         TaskEntity mappedTaskEntity = mapper.toEntity(task);
 
         // Then
-        assertThat(mappedTaskEntity.getId()).isNull();
-        assertThat(mappedTaskEntity.getCreatedAt()).isNull();
-        assertThat(mappedTaskEntity.getUpdatedAt()).isNull();
-        assertThat(mappedTaskEntity.getTitle()).isEqualTo(task.getTitle());
-        assertThat(mappedTaskEntity.getDescription()).isEqualTo(task.getDescription());
-        assertThat(mappedTaskEntity.getPriority()).isEqualTo(task.getPriority());
-        assertThat(mappedTaskEntity.getExpiresAt()).isEqualTo(task.getExpiresAt());
+        assertMappingOf(mappedTaskEntity, task);
     }
 
     @Test
@@ -78,9 +67,15 @@ class TaskEntityMapperTest {
         List<TaskEntity> mappedTaskEntities = mapper.toEntity(tasks);
 
         // Then
-        assertThat(mappedTaskEntities).hasSize(2);
-        assertThat(mappedTaskEntities.get(0).getTitle()).isEqualTo(task1.getTitle());
-        assertThat(mappedTaskEntities.get(1).getTitle()).isEqualTo(task2.getTitle());
+        assertMappingOf(mappedTaskEntities.get(0), task1);
+        assertMappingOf(mappedTaskEntities.get(1), task2);
+    }
+
+    private void assertMappingOf(TaskEntity expected, Task actual) {
+        assertThat(expected)
+            .usingRecursiveComparison()
+            .ignoringFields("id", "createdAt", "updatedAt")
+            .isEqualTo(actual);
     }
 
 }
